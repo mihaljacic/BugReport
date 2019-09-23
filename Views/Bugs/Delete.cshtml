@@ -1,0 +1,52 @@
+﻿@model BugReport.Models.Bug
+
+@{
+    ViewData["Title"] = "Delete";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Izbriši</h2>
+
+<h3>Jeste li sigurni da želite izbrisati bug?</h3>
+<div>
+    <h4>Bug @Html.DisplayFor(model => model.Id)</h4> 
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.BugName)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.BugName)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.DateOpen)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.DateOpen)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.BugDescription)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.BugDescription)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.IsClosed)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.IsClosed)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.BugResolution)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.BugResolution)
+        </dd>
+    </dl>
+
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="Id" />
+        <input type="submit" value="Pobriši" class="btn btn-default" /> |
+        <a asp-action="Index">Natrag na listu</a>
+    </form>
+</div>

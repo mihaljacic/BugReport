@@ -1,0 +1,49 @@
+﻿@model BugReport.Models.Bug
+
+@{
+    ViewData["Title"] = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Detalji</h2>
+
+<div>
+    <h4>Bug</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.BugName)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.BugName)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.DateOpen)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.DateOpen)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.BugDescription)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.BugDescription)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.IsClosed)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.IsClosed)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.BugResolution)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.BugResolution)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.Id">Uredi</a> |
+    <a asp-action="Index">Natrag na listu</a>
+</div>

@@ -1,0 +1,60 @@
+﻿@model IEnumerable<BugReport.Models.Bug>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Lista bugova</h2>
+
+<p>
+    <a asp-action="Create">Kreiraj novi</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.BugName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DateOpen)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.BugDescription)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IsClosed)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.BugResolution)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.BugName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DateOpen)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.BugDescription)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IsClosed)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.BugResolution)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Id">Uredi</a> |
+                <a asp-action="Details" asp-route-id="@item.Id">Detalji</a> |
+                <a asp-action="Delete" asp-route-id="@item.Id">Pobriši</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

@@ -1,0 +1,58 @@
+﻿@model BugReport.Models.Bug
+
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Kreiraj</h2>
+
+<h4>Bug</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="BugName" class="control-label"></label>
+                <input asp-for="BugName" class="form-control" />
+                <span asp-validation-for="BugName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DateOpen" class="control-label"></label>
+                <input asp-for="DateOpen" class="form-control" />
+                <span asp-validation-for="DateOpen" class="
+                      
+                      "></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="BugDescription" class="control-label"></label>
+                <input asp-for="BugDescription" class="form-control" />
+                <span asp-validation-for="BugDescription" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <div class="checkbox">
+                    <label>
+                        <input asp-for="IsClosed" /> @Html.DisplayNameFor(model => model.IsClosed)
+                    </label>
+                </div>
+            </div>
+            <div class="form-group">
+                <label asp-for="BugResolution" class="control-label"></label>
+                <input asp-for="BugResolution" class="form-control" />
+                <span asp-validation-for="BugResolution" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Kreiraj" class="btn btn-default" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Natrag na listu</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
